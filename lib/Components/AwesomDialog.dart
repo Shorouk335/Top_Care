@@ -11,7 +11,7 @@ Future<dynamic> ShowDialog(context, {String? img, String? txt, String? type}) {
         Image.asset(img!, width: 250),
         Text(
           "$txt",
-          style: txtStyle(blueColor, 20.0, false, ""),
+          style: txtStyle(CyneColordark, 20.0, false),
         ),
         SizedBox(
           height: 50,

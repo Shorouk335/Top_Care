@@ -21,7 +21,6 @@ class _SplachState extends State<Splach> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
           child: Container(
@@ -35,11 +34,11 @@ class _SplachState extends State<Splach> {
                 AnimatedTextKit(
                   animatedTexts: [
                     TyperAnimatedText('Welcom !',
-                        textStyle: txtStyle(CyneColor, 45.0, true, "")),
+                        textStyle: txtStyle(CyneColordark, 45.0, true)),
                     TyperAnimatedText('to ..',
-                        textStyle: txtStyle(CyneColor, 45.0, true, "")),
+                        textStyle: txtStyle(CyneColordark, 45.0, true)),
                     TyperAnimatedText('Top Care',
-                        textStyle: txtStyle(CyneColor, 45.0, true, "")),
+                        textStyle: txtStyle(CyneColordark, 45.0, true)),
                   ],
                 ),
               ],

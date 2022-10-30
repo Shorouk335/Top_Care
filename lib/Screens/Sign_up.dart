@@ -51,7 +51,7 @@ class _SignUpState extends State<SignUp> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("I Aready have An Account ?",style: txtStyle(Colors.grey, 15.0, false ,""),),
+                        Text("I Aready have An Account ?",style: txtStyle(Colors.grey, 15.0, false ),),
                         InkWell(
                           onTap:(){
                             Navigator.pushReplacement(context,
@@ -77,7 +77,7 @@ class _SignUpState extends State<SignUp> {
 
                           decoration: BoxDecoration(
                               gradient: LinearGradient(
-                                  colors: [Colors.grey ,blueColor],
+                                  colors: [Colors.grey ,CyneColordark],
                                   begin: Alignment.bottomRight,
                                   end: Alignment.topCenter
                               ),
@@ -85,7 +85,7 @@ class _SignUpState extends State<SignUp> {
                               color: purpleColor
                           ),
                           child: Center(
-                              child: Text("Sign Up",style: txtStyle(Colors.white, 30.0, false ,""),)
+                              child: Text("Sign Up",style: txtStyle(Colors.white, 30.0, false ),)
 
                           ),
                         )),

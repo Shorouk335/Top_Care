@@ -39,9 +39,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: Colors.transparent ,
-    statusBarIconBrightness: Brightness.dark
+        statusBarIconBrightness: Brightness.dark
     ));
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       initialRoute: SplachScreen ,
       //(IsLogin== true)? HomeScreen : SplachScreen ,

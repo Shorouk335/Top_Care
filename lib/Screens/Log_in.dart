@@ -57,7 +57,7 @@ class _LogInState extends State<LogIn> {
                   children: [
                     Text(
                       "Don't have An Account ?",
-                      style: txtStyle(Colors.grey, 15.0 ,false ,""),
+                      style: txtStyle(Colors.grey, 15.0 ,false ),
                     ),
                     InkWell(
                       onTap: () {
@@ -86,7 +86,7 @@ class _LogInState extends State<LogIn> {
                       height: 60,
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
-                              colors: [Colors.grey, blueColor],
+                              colors: [Colors.grey, CyneColordark],
                               begin: Alignment.bottomRight,
                               end: Alignment.topCenter),
                           borderRadius: BorderRadius.circular(3030),
@@ -94,7 +94,7 @@ class _LogInState extends State<LogIn> {
                       child: Center(
                           child: Text(
                         "Log In",
-                        style: txtStyle(Colors.white, 30.0 ,false , ""),
+                        style: txtStyle(Colors.white, 30.0 ,false ),
                       )),
                     )),
                 SizedBox(

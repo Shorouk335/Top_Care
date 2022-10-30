@@ -15,7 +15,7 @@ Widget TextFormWidget(
       controller: controller,
       // لاخفاء واظهار النص
       obscureText: password!,
-      cursorColor: blueColor,
+      cursorColor: CyneColordark,
       validator: (value) {
         if (value!.isEmpty)
           return "$txt can't be empty";
@@ -25,7 +25,7 @@ Widget TextFormWidget(
       decoration: InputDecoration(
 //استايل الكلام الخفي
         hintText: "$txt",
-        hintStyle: txtStyle(Colors.grey, 15.0, false, ""),
+        hintStyle: txtStyle(Colors.grey, 15.0, false),
 // الايكون الي في الاخر
         suffixIcon: (password)
             ? InkWell(
