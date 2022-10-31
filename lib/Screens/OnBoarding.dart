@@ -17,17 +17,23 @@ class OnBoarding extends StatelessWidget {
         img: "calldoctor.webp",
         title: "Get a doctor easily for your disease ",
         disc:
-            "you will find a great doctors and nurses,Every doctor here is with MBBS  ,all type of patients are served"),
+            "you will find a great doctors and nurses,Every doctor here is with MBBS  ,all type of patients are served",
+      Hsize: 2.5,
+    ),
     PageViewModel(
-        img: "xray.png",
+        img: "x.webp",
         title: "You can easily know the result of the chest x-ray ",
         disc:
-            "You will upload the chest x-ray images then know the result of your x-ray and the doctor will see it"),
+            "You will upload the chest x-ray images then know the result of your x-ray and the doctor will see it",
+      Hsize: 3,),
+
     PageViewModel(
-        img: "doctor.webp",
+        img: "ko.webp",
         title: "Easily Know about your disease",
         disc:
-            "learn about chest diseases such as pneumonia and everything new about the disease"),
+            "learn about chest diseases such as pneumonia and everything new about the disease",
+      Hsize: 2.5,
+    ),
   ];
 
   @override

@@ -13,12 +13,14 @@ Widget PageViewItem({
         SizedBox(height: 20,),
         Text("${model?.disc}",
             style: Theme.of(context).textTheme.bodyText2, maxLines: 2),
+        SizedBox(height: 20,),
+
         Center(
             child: Image(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height/2.4,
                 image: AssetImage(
                     "assets/images/${model?.img}"),
+                height: MediaQuery.of(context).size.height/model?.Hsize,
                 fit: BoxFit.contain,
             )),
 
