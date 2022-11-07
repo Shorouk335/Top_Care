@@ -1,6 +1,8 @@
 # top_care_graduation_project
 
-A new Flutter project.
+pneumonia detection and heart disease grarduation project
+
+Medical app For major Pneumonia Detection using Chest X-Ray (XRayAnalysis , Order lab tests and review results with your doctor , Understand your symptoms with HealthTap Al , Unlimited Doctor QLA )
 
 ## Getting Started
 
