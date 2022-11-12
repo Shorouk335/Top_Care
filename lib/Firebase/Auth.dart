@@ -1,19 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:google_sign_in/google_sign_in.dart';
-import 'package:top_care_graduation_project/Components/AwesomDialog.dart';
-import 'package:top_care_graduation_project/Constant/PageName.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:top_care_graduation_project/Presentaion/Shared_Components/AwesomDialog.dart';
+import 'package:top_care_graduation_project/Resource/Asset_Manager/Asset_Manager.dart';
+import 'package:top_care_graduation_project/Resource/Routes/Routes.dart';
 
 // اوبجككت من الحساب الي هيدخل بيه
 UserCredential? userCredential;
 
 // للحصول علي معلومات المستخدم الحالي
-Future getUserData ()async{
-
+Future getUserData() async {
   return await FirebaseAuth.instance.currentUser;
 }
+
 //تسجيل الخروج
-Future SignOut () async{
+Future SignOut() async {
   return await FirebaseAuth.instance.signOut();
 }
 
@@ -23,14 +24,16 @@ Future LogInWithFire(BuildContext context,
   try {
     userCredential = await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email!, password: password!);
-        Navigator.pushReplacementNamed(context, HomeScreen);
+    Navigator.pushReplacementNamed(context, RouteGenerator.HomeRoute);
   } on FirebaseAuthException catch (e) {
-    if (e.code == "user-not-found"){}
-
-    else if (e.code == "wrong-password") {
-      // ShowDialog(context,
-      //     txt: "Wrong Password", im: "assets/error.webp", type: "error");
-    }} catch (e) {}
+    if (e.code == "user-not-found") {
+      ShowDialog(context,
+          txt: "User not found", img: AssetManager.AwesomError, type: "error");
+    } else if (e.code == "wrong-password") {
+      ShowDialog(context,
+          txt: "Wrong Password", img: AssetManager.AwesomError, type: "error");
+    }
+  } catch (e) {}
 }
 
 // انشاء حساب باميل وباسورد
@@ -39,24 +42,20 @@ Future SignUpWithFire(BuildContext context,
   try {
     userCredential = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email!, password: password!);
-      Navigator.pushReplacementNamed(context, HomeScreen);
-
-    if (userCredential!.user!.emailVerified == false) {
-      User? user = FirebaseAuth.instance.currentUser;
-      await user!.sendEmailVerification();
-    }
+    Navigator.pushReplacementNamed(context, RouteGenerator.HomeRoute);
+    //
+    // if (userCredential!.user!.emailVerified == false) {
+    //   User? user = FirebaseAuth.instance.currentUser;
+    //   await user!.sendEmailVerification();
+    // }
     // في حاله حدوث هذا الخطا
   } on FirebaseAuthException catch (e) {
     if (e.code == 'weak-password') {
-      print("weak-password");
-      // ShowDialog(context,
-      //     txt: "Weak Password", im: "assets/error.webp", type: "warning");
+      ShowDialog(context,
+          txt: "Weak Password", img: AssetManager.AwesomError, type: "warning");
     } else if (e.code == 'email-already-in-use') {
-      print("email-already-in-use   ");
-      // ShowDialog(context,
-      //     txt: "Email Already in use",
-      //     im: "assets/error.webp",
-      //     type: "warning");
+      ShowDialog(context,
+          txt: "Email already in use", img: AssetManager.AwesomError, type: "warning");
     }
     // لو خطا اخر
   } catch (e) {
@@ -81,6 +80,7 @@ Future SignUpWithFire(BuildContext context,
 //       .signInWithCredential(googleCred);
 //        Navigator.pushReplacementNamed(context, HomeScreen);
 // }
+
 //التسجيل بالفيس
 // Future<UserCredential> signInWithFacebook() async {
 //   // Trigger the sign-in flow

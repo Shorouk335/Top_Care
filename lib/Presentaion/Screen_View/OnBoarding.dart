@@ -1,37 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:top_care_graduation_project/Components/PageViewItem.dart';
-import 'package:top_care_graduation_project/Constant/Color.dart';
-import 'package:top_care_graduation_project/Constant/PageName.dart';
-import 'package:top_care_graduation_project/Models/PageViewModel.dart';
-import 'package:top_care_graduation_project/Screens/Log_in.dart';
-import 'package:top_care_graduation_project/Style/style.dart';
+import 'package:top_care_graduation_project/Data/Models/PageViewModel.dart';
+import 'package:top_care_graduation_project/Presentaion/Shared_Components/PageViewItem.dart';
+import 'package:top_care_graduation_project/Resource/Asset_Manager/Asset_Manager.dart';
+import 'package:top_care_graduation_project/Resource/Color_Manager/Color_Manager.dart';
+import 'package:top_care_graduation_project/Resource/Routes/Routes.dart';
+import 'package:top_care_graduation_project/Resource/String_Manager/String_Manager.dart';
+import 'package:top_care_graduation_project/Resource/Theme/Light_Theme.dart';
 
 class OnBoarding extends StatelessWidget {
+  //to navigator to login screen on last pageview
   var indexPageView = 0;
 
   var controller = PageController();
 
   List<PageViewModel> PageViewData = [
     PageViewModel(
-        img: "calldoctor.webp",
-        title: "Get a doctor easily for your disease ",
-        disc:
-            "you will find a great doctors and nurses,Every doctor here is with MBBS  ,all type of patients are served",
+      img: AssetManager.onBord1,
+      title: StringManager.onBordTitle1,
+      disc:
+      StringManager.onBordDis1,
       Hsize: 2.5,
     ),
     PageViewModel(
-        img: "x.webp",
-        title: "You can easily know the result of the chest x-ray ",
-        disc:
-            "You will upload the chest x-ray images then know the result of your x-ray and the doctor will see it",
-      Hsize: 3,),
-
+      img: AssetManager.onBord2,
+      title: StringManager.onBordTitle2,
+      disc:
+      StringManager.onBordDis2,
+      Hsize: 3,
+    ),
     PageViewModel(
-        img: "ko.webp",
-        title: "Easily Know about your disease",
-        disc:
-            "learn about chest diseases such as pneumonia and everything new about the disease",
+      img:AssetManager.onBord3,
+      title: StringManager.onBordTitle3,
+      disc:
+      StringManager.onBordDis3,
       Hsize: 2.5,
     ),
   ];
@@ -44,7 +46,6 @@ class OnBoarding extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(children: [
             Expanded(
-              flex: 3,
               child: PageView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: PageViewData.length,
@@ -59,19 +60,16 @@ class OnBoarding extends StatelessWidget {
                 },
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: SmoothPageIndicator(
-                count: PageViewData.length,
-                controller: controller,
-                effect: ExpandingDotsEffect(
-                  activeDotColor: CyneColorLight,
-                  dotColor: GrayColorLight,
-                  dotHeight: 10,
-                  dotWidth: 10,
-                  expansionFactor: 3,
-                  spacing: 5,
-                ),
+            SmoothPageIndicator(
+              count: PageViewData.length,
+              controller: controller,
+              effect: ExpandingDotsEffect(
+                activeDotColor: ColorManager.CyneColorLight,
+                dotColor:ColorManager.GrayColorLight,
+                dotHeight: 10,
+                dotWidth: 10,
+                expansionFactor: 3,
+                spacing: 5,
               ),
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -84,11 +82,11 @@ class OnBoarding extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.pushReplacementNamed(context, LoginScreen);
+                      Navigator.pushReplacementNamed(context, RouteGenerator.LoginRoute);
                     },
                     child: CircleAvatar(
                       radius: 34,
-                      backgroundColor: GrayColorLight,
+                      backgroundColor: ColorManager.GrayColorLight,
                       child: Text(
                         "Skip",
                         style: txtStyle(Colors.white, 15.0, false),
@@ -102,12 +100,12 @@ class OnBoarding extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 40,
-                    backgroundColor: CyneColorLight,
+                    backgroundColor: ColorManager.CyneColorLight,
                   ),
                   InkWell(
                     onTap: () {
                       if (indexPageView == PageViewData.length - 1) {
-                        Navigator.pushReplacementNamed(context, LoginScreen);
+                        Navigator.pushReplacementNamed(context, RouteGenerator.LoginRoute);
                       }
                       controller.nextPage(
                           duration: Duration(
@@ -117,7 +115,7 @@ class OnBoarding extends StatelessWidget {
                     },
                     child: CircleAvatar(
                       radius: 34,
-                      backgroundColor: blueColorLight,
+                      backgroundColor: ColorManager.blueColorLight,
                       child: Icon(
                         Icons.arrow_forward_ios_outlined,
                         color: Colors.white,
