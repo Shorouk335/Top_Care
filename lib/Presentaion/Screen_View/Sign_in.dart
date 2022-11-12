@@ -31,6 +31,9 @@ class _SignInState extends State<SignIn> {
             key: formKey,
             child: Column(
               children: [
+                SizedBox(
+                  height: 30,
+                ),
                 Text(
                   'Sign In',
                   style: txtStyle(ColorManager.CyneColordark, 30.0, true),

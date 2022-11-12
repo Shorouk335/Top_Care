@@ -31,6 +31,9 @@ class _SignUpState extends State<SignUp> {
             key: formKey,
             child: Column(
               children: [
+                SizedBox(
+                  height: 30,
+                ),
                 Text(
                   'Sign Up',
                   style: txtStyle(ColorManager.CyneColordark, 30.0, true),
@@ -124,7 +127,7 @@ class _SignUpState extends State<SignUp> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      "Already Have an Account",
+                      "Already Have an Account?",
                       style: txtStyle(ColorManager.CyneColordark, 15.0, false),
                     ),
                     SizedBox(
